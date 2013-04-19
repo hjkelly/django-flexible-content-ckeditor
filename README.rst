@@ -1,6 +1,6 @@
-django-flexible-content
-=======================
-An item type for django-flexible-content that implements a CKEditor
+django-flexible-content-ckeditor
+================================
+A flexible item type for django-flexible-content that implements a CKEditor
 
 Why?
 ----
