@@ -114,6 +114,10 @@ ROOT_URLCONF = 'mock_project.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'mock_project.wsgi.application'
 
+FIXTURE_DIRS = (
+    os.path.join(SITE_ROOT, 'fixtures'),
+)
+
 TEMPLATE_DIRS = (
     os.path.join(SITE_ROOT, 'templates'),
 )
@@ -123,6 +127,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'flexible_content',

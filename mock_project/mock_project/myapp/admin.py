@@ -9,4 +9,4 @@ class BlogPostAdmin(ContentAreaAdmin):
     pass
 
 
-admin.sites.register(BlogPost, BlogPostAdmin)
+admin.site.register(BlogPost, BlogPostAdmin)

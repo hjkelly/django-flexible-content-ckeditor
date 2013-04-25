@@ -1,4 +1,7 @@
+import re
+
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.db.models.fields import Field, TextField
 from django.forms.fields import CharField
 
@@ -15,7 +18,7 @@ class CKEditorField(TextField):
         Ensure that the form field is our CKEditor one.
         """
         kwargs['form_class'] = CKEditorFormField
-        return super(CKEditorFormField, self).formfield(**kwargs)
+        return super(CKEditorField, self).formfield(**kwargs)
 
     def clean(self, value, model_instance):
         """
@@ -41,7 +44,8 @@ class CKEditorField(TextField):
     def get_forbidden_domains(self):
         """
         Based on the project's configuration, figure out what domains shouldn't
-        be allowed as fully-qualified URLs.
+        be allowed as fully-qualified URLs. Strip off the 'www.' prefix if it
+        has it.
         """
         forbidden_domains = []
 
@@ -58,7 +62,15 @@ class CKEditorField(TextField):
                 pass
             else:
                 forbidden_domains = [site_domain]
-        return forbidden_domains
+
+        # Strip leading 'www.' if it has one.
+        cleaned_forbidden_domains = []
+        for f in forbidden_domains:
+            if f.startswith('www.'):
+                f = f[4:]
+            cleaned_forbidden_domains.append(f)
+
+        return cleaned_forbidden_domains
 
     def get_value_without_domains(self, value, domains):
         """

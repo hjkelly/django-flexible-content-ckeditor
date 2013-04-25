@@ -1,0 +1,64 @@
+[
+{
+    "pk": 1, 
+    "model": "myapp.blogpost", 
+    "fields": {
+        "slug": "test-post", 
+        "title": "Test Post"
+    }
+},
+{
+    "pk": 1, 
+    "model": "flexible_content.baseitem", 
+    "fields": {
+        "ordering": 1, 
+        "content_area_id": 1, 
+        "content_area_ct": [
+            "myapp", 
+            "blogpost"
+        ]
+    }
+},
+{
+    "pk": 2, 
+    "model": "flexible_content.baseitem", 
+    "fields": {
+        "ordering": 2, 
+        "content_area_id": 1, 
+        "content_area_ct": [
+            "myapp", 
+            "blogpost"
+        ]
+    }
+},
+{
+    "pk": 1, 
+    "model": "default_item_types.image", 
+    "fields": {
+        "uploaded_file": "flexible-content/images/Screen_Shot_2013-04-25_at_10.25.44_AM.png"
+    }
+},
+{
+    "pk": 2, 
+    "model": "flexible_ckeditor.ckeditortext", 
+    "fields": {
+        "html": "<p>Testing the editor's functionality!</p>\r\n<ul>\r\n<li><a href=\"http://mydomain.com/about/\">Fully-Qualified Internal Link</a></li>\r\n<li><a href=\"http://dev.mydomain.com/about/\">Fully-Qualified Dev Link</a></li>\r\n<li><a href=\"/about/\">Root-Relative Internal Link</a></li>\r\n<li><img src=\"http://www.mydomain.com/img.png\"></li>\r\n<li><a href=\"http://www.notmydomain.com/externalimage.png\">External Link</a></li>\r\n</ul>"
+    }
+},
+{
+    "pk": 1,
+    "model": "sites.Site",
+    "fields": {
+        "domain": "www.mydomain.com",
+        "name": "Production"
+    }
+},
+{
+    "pk": 2,
+    "model": "sites.Site",
+    "fields": {
+        "domain": "dev.mydomain.com",
+        "name": "Development"
+    }
+}
+]
