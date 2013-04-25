@@ -15,7 +15,9 @@ It allows user-friendly input of basic text:
 - lists
 - links (these can be configured)
 
-In addition, the underlying CKEditorField itself can optionally clean the submitted HTML, removing all fields except those above. So if you want to strip outside styles and tags at all cost, it can do that. Alternatively, if you want to leave room for small HTML tweaks, you can disable this as well.
+Other than implementing CKEditor within the admin, it also prevents fully-qualified domain names from making it into the database when those domains reference the current site. This allows your production database (www.mydomain.com) to work seamlessly on sites with other domains. It finds these domains via Django's Sites framework, or alternatively by a small addition to your settings file.
+
+*Coming soon:* In addition, the underlying CKEditorField itself can optionally clean the submitted HTML, removing all tags except those above. So if you want to strip outside styles and tags at all cost, it can do that. Alternatively, if you want to leave room for small HTML tweaks, you can disable this as well.
 
 What doesn't it do?
 -------------------
