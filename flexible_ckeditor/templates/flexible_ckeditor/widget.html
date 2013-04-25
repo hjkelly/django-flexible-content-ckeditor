@@ -1,0 +1,42 @@
+{% load static %}
+<textarea{{ attr_string|safe }}>{{ content }}</textarea>
+<script type="text/javascript">
+    CKEDITOR_BASEPATH = "{% static 'flexible_ckeditor/ckeditor/' %}";
+    if (typeof(CKEDITOR) == 'undefined') {
+        // Dynamically insert the CKEditor script file.
+        s = document.createElement('script');
+        s.src = "{% static 'flexible_ckeditor/ckeditor/ckeditor.js' %}";
+        django.jQuery('head').append(s);
+    }
+    // If it's not instantiated yet, make it so:
+    if (typeof(CKEDITOR.instances) == 'undefined' ||
+            !('{{ attrs.id }}' in CKEDITOR.instances)) {
+        CKEDITOR.replace('{{ attrs.id }}', {
+            forcePasteAsPlainText: true,
+            toolbar: 'MyToolbar',
+            toolbar_MyToolbar: [
+                { name: 'styles', items: ['Format','Bold','Italic','RemoveFormat'] },
+                { name: 'clipboard', items: ['PasteText','PasteFromWord'] },
+                { name: 'insert', items: [
+                    'Link','Unlink','NumberedList','BulletedList','Table',
+                    'Blockquote'] },
+                { name: 'editing', items: [
+                    'Maximize','=','Undo','Redo','=','Find','Replace','SelectAll']},
+                { name: 'document', items: ['Source'] }
+            ],
+            on : {
+                instanceReady : function( ev )
+                {
+                    this.dataProcessor.writer.setRules( 'p',
+                        {
+                            indent : false,
+                            breakBeforeOpen : true,
+                            breakAfterOpen : false,
+                            breakBeforeClose : false,
+                            breakAfterClose : true
+                        });
+                }
+            }
+        });
+    }
+</script>
