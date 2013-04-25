@@ -9,7 +9,9 @@ from .widgets import CKEditorWidget
 
 
 class CKEditorFormField(CharField):
-    widget = CKEditorWidget
+    def __init__(self, *args, **kwargs):
+        kwargs['widget'] = CKEditorWidget
+        super(CKEditorFormField, self).__init__(*args, **kwargs)
 
 
 class CKEditorField(TextField):
@@ -37,9 +39,8 @@ class CKEditorField(TextField):
             # Find out what domains we shouldn't allow.
             forbidden_domains = self.get_forbidden_domains()
             # Remove them and store the cleaned contents of the field.
-            cleaned_value = self.get_value_without_domains(value,
-                                                           forbidden_domains)
-        return cleaned_value
+            value = self.get_domain_agnostic_value(value, forbidden_domains)
+        return value
 
     def get_forbidden_domains(self):
         """
@@ -72,7 +73,7 @@ class CKEditorField(TextField):
 
         return cleaned_forbidden_domains
 
-    def get_value_without_domains(self, value, domains):
+    def get_domain_agnostic_value(self, value, domains):
         """
         For the given HTML, remove fully-qualified references to one or more
         domains.

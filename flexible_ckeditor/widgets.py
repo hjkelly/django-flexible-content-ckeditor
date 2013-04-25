@@ -6,9 +6,9 @@ from django.utils.safestring import mark_safe
 
 
 class CKEditorWidget(Textarea):
-    def render(self, name, value, attrs=None):
+    def render(self, name, value=None, attrs=None):
         """
-        Insert the necessary markup here!
+        Generate the markup for the HTML editor.
         """
         
         # If the value wasn't specified in the calls that led to this render(),
@@ -30,15 +30,3 @@ class CKEditorWidget(Textarea):
                 'attr_string': flatatt(final_attrs),
             }
         ))
-    
-    """
-    class Media:
-        css = {
-            'all': (
-                settings.STATIC_URL + 'flexible_ckeditor/admin.css',
-            ),
-        }
-        js = [
-            settings.STATIC_URL + 'flexible_ckeditor/ckeditor.js',
-        ]
-    """

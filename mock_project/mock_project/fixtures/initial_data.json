@@ -42,7 +42,7 @@
     "pk": 2, 
     "model": "flexible_ckeditor.ckeditortext", 
     "fields": {
-        "html": "<p>Testing the editor's functionality!</p>\r\n<ul>\r\n<li><a href=\"http://mydomain.com/about/\">Fully-Qualified Internal Link</a></li>\r\n<li><a href=\"http://dev.mydomain.com/about/\">Fully-Qualified Dev Link</a></li>\r\n<li><a href=\"/about/\">Root-Relative Internal Link</a></li>\r\n<li><img src=\"http://www.mydomain.com/img.png\"></li>\r\n<li><a href=\"http://www.notmydomain.com/externalimage.png\">External Link</a></li>\r\n</ul>"
+        "html": "<p>Testing the editor's functionality!</p>\r\n<ul>\r\n<li><a href=\"http://mydomain.com/about/\">Fully-Qualified Internal Link</a></li>\r\n<li><a href=\"http://dev.mydomain.com/about/\">Fully-Qualified Dev Link</a></li>\r\n<li><a href=\"/about/\">Root-Relative Internal Link</a></li>\r\n<li><img src=\"http://www.mydomain.com/img.png\"></li>\r\n<li><a href=\"http://www.externaldomain.com/externalimage.png\">External Link</a></li>\r\n</ul>"
     }
 },
 {

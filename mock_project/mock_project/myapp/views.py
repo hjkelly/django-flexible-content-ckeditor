@@ -9,6 +9,6 @@ list_posts = PostListView.as_view()
 
 
 class PostDetailView(DetailView):
-    slug_kwarg = 'post_slug'
+    slug_url_kwarg = 'post_slug'
     queryset = BlogPost.objects.all()
 post = PostDetailView.as_view()
