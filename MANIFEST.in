@@ -1,0 +1,15 @@
+include *.md
+include *.rst
+include *.txt
+include mock_project/requirements.txt
+include mock_project/mock_project/mock.sqlite3
+recursive-include flexible_ckeditor/static *
+recursive-include flexible_ckeditor/templates *
+recursive-include mock_project/mock_project/templates *
+recursive-include mock_project/mock_project/media *
+recursive-exclude * .DS_Store
+recursive-exclude * *.pyc
+recursive-exclude * *.pyo
+recursive-exclude * *.sqlite
+recursive-exclude * *.swp
+
